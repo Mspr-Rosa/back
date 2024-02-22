@@ -8,6 +8,7 @@ import fr.espi.backmspr.backmspr.repository.UserRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;
 import java.util.concurrent.Flow;
@@ -26,9 +27,11 @@ public class UserService {
 
     public UserEntity makeUser(UserDTO userDTO){
 
+        String hashedMdp = hashPassword(userDTO.getMdp());
+
         UserEntity user = new UserEntity();
         user.setUser(userDTO.getUser());
-        user.setMdp(userDTO.getMdp());
+        user.setMdp(hashedMdp);
 
         return userRepository.save(user);
     }
