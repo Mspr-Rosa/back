@@ -3,7 +3,7 @@ package fr.espi.backmspr.backmspr.entity.dto;
 public class FlowerDTO {
     private String flower;
     private String description;
-    private int userid;
+    private Long userid;
 
     public String getDescription() {
         return description;
@@ -13,7 +13,7 @@ public class FlowerDTO {
         return flower;
     }
 
-    public int getUserId() {
+    public Long getUserId() {
         return userid;
     }
 
@@ -25,7 +25,7 @@ public class FlowerDTO {
         this.flower = flower;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userid = userId;
     }
 }

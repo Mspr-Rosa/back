@@ -29,33 +29,8 @@ public class FlowerController {
     }
 
     @PostMapping("make")
-    public ResponseEntity<FlowerDTO> makeFlower(@RequestBody FlowerDTO flowerDTO){
-
-        FlowerEntity flowerEntity = convertToEntity(flowerDTO);
-        FlowerEntity createdflower = flowerService.makeFlower(flowerEntity);
-        FlowerDTO createdFlower = convertToDTO(createdflower);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdFlower);
-    }
-
-
-
-    // Méthode pour convertir FlowerDTO en Flower
-    private FlowerEntity convertToEntity(FlowerDTO flowerDTO) {
-        FlowerEntity flower = new FlowerEntity();
-        flower.setFlower(flowerDTO.getFlower());
-        flower.setDescription(flowerDTO.getDescription());
-        flower.setUserid(flowerDTO.getUserId());
-        return flower;
-    }
-
-    // Méthode pour convertir Flower en FlowerDTO
-    private FlowerDTO convertToDTO(FlowerEntity flower) {
-        FlowerDTO flowerDTO = new FlowerDTO();
-        flowerDTO.setFlower(flower.getFlower());
-        flowerDTO.setDescription(flower.getDescription());
-        flowerDTO.setUserId(flower.getUserid()); // Si vous avez besoin de l'ID de l'utilisateur
-        return flowerDTO;
+    public FlowerEntity makeFlower(@RequestBody FlowerDTO flowerDTO){
+        return flowerService.makeFlower(flowerDTO);
     }
 
 

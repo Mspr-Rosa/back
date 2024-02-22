@@ -4,20 +4,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "flower")
 public class FlowerEntity {
 
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Integer id;
     private String flower;
 
     private String description;
-
-    @JoinColumn(name = "userid")
-    private Integer userid;
+    @ManyToOne()
+    @JsonIgnore
+    private UserEntity userEntity;
 
     public long getId() {
         return id;
@@ -27,8 +29,8 @@ public class FlowerEntity {
         return flower;
     }
 
-    public Integer getUserid() {
-        return userid;
+    public UserEntity getUserEntity() {
+        return userEntity;
     }
 
     public String getDescription() {
@@ -47,7 +49,7 @@ public class FlowerEntity {
         this.id = id;
     }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 }

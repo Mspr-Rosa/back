@@ -1,24 +1,13 @@
-package fr.espi.backmspr.backmspr.entity;
+package fr.espi.backmspr.backmspr.entity.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+public class UserDTO {
 
-@Entity
-@Table(name = "users")
-public class UserEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
     private String user;
     private String mdp;
-
-    @OneToMany(mappedBy="userEntity")
-    private Set<FlowerEntity> flowers;
 
     public Long getId() {
         return id;
@@ -32,13 +21,15 @@ public class UserEntity {
         return mdp;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void setMdp(String mdp) {
         this.mdp = mdp;
     }
+
     public void setUser(String user) {
         this.user = user;
-    }
-    public void setId(Long id) {
-        this.id = id;
     }
 }

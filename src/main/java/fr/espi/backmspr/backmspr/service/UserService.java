@@ -1,12 +1,16 @@
 package fr.espi.backmspr.backmspr.service;
 
+import fr.espi.backmspr.backmspr.entity.FlowerEntity;
 import fr.espi.backmspr.backmspr.entity.UserEntity;
+import fr.espi.backmspr.backmspr.entity.dto.FlowerDTO;
+import fr.espi.backmspr.backmspr.entity.dto.UserDTO;
 import fr.espi.backmspr.backmspr.repository.UserRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.concurrent.Flow;
 
 @Component
 public class UserService {
@@ -20,8 +24,13 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public UserEntity makeUser(UserEntity userEntity){
-        return userRepository.save(userEntity);
+    public UserEntity makeUser(UserDTO userDTO){
+
+        UserEntity user = new UserEntity();
+        user.setUser(userDTO.getUser());
+        user.setMdp(userDTO.getMdp());
+
+        return userRepository.save(user);
     }
 
     public UserEntity login(String user, String mdp){

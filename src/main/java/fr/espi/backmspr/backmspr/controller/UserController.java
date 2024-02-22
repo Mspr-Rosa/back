@@ -1,6 +1,7 @@
 package fr.espi.backmspr.backmspr.controller;
 
 import fr.espi.backmspr.backmspr.entity.UserEntity;
+import fr.espi.backmspr.backmspr.entity.dto.UserDTO;
 import fr.espi.backmspr.backmspr.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +25,8 @@ public class UserController {
     }
 
     @PostMapping("make")
-    public UserEntity makeUser(@RequestBody UserEntity userEntity){
-        return userService.makeUser(userEntity);
+    public UserEntity makeUser(@RequestBody UserDTO userDTO){
+        return userService.makeUser(userDTO);
     }
 
     @GetMapping("login")
