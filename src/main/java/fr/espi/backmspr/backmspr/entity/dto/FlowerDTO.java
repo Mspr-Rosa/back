@@ -5,6 +5,12 @@ public class FlowerDTO {
     private String description;
     private Long userid;
 
+    public FlowerDTO(Long id, String description, String flower){
+        this.flower = flower;
+        this.description = description;
+        this.userid = id;
+    }
+
     public String getDescription() {
         return description;
     }

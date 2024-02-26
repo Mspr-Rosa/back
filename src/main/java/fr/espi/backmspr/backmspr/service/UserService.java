@@ -26,9 +26,7 @@ public class UserService {
 
     public UserEntity makeUser(UserDTO userDTO){
 
-        UserEntity user = new UserEntity();
-        user.setUser(userDTO.getUser());
-        user.setMdp(userDTO.getMdp());
+        UserEntity user = new UserEntity(userDTO.getUser(),userDTO.getMdp());
 
         return userRepository.save(user);
     }
