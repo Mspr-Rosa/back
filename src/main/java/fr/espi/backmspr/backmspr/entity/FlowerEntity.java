@@ -12,7 +12,6 @@ public class FlowerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
     private Integer id;
     private String flower;
 
@@ -20,6 +19,16 @@ public class FlowerEntity {
     @ManyToOne()
     @JsonIgnore
     private UserEntity userEntity;
+
+    public FlowerEntity(){
+
+    }
+
+    public FlowerEntity(int id, String flower, String description){
+        this.flower = flower;
+        this.description = description;
+        this.id = id;
+    }
 
     public long getId() {
         return id;
