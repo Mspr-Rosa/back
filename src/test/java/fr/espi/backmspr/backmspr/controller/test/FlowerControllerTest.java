@@ -36,8 +36,8 @@ public class FlowerControllerTest {
     public void getAllFlower() throws Exception{
 
         List<FlowerEntity> list = Arrays.asList(
-                new FlowerEntity(1 , "Rose" , "une belle Rose"),
-                new FlowerEntity(2 , "Tulipe" , "une belle Tulipe")
+                new FlowerEntity(1 , "Rose" , "une belle Rose", 111.0,111.0, "Lille", "titre"),
+                new FlowerEntity(2 , "Tulipe" , "une belle Tulipe", 111.0 , 111.0, "Lille", "titre")
         );
 
         when(service.getAll()).thenReturn(list);
@@ -56,7 +56,7 @@ public class FlowerControllerTest {
     @Test
     public void FlowerTestMake() throws Exception {
         mockMvc.perform(post("/flowers/make")
-                        .content(asJsonString(new FlowerDTO(1L,"une rose","rose")))
+                        .content(asJsonString(new FlowerDTO(1L,"une rose","rose", 111.0 ,111.0, "Lille", "titre")))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated());
