@@ -14,6 +14,17 @@ public class FlowerTypeEntity {
     private String name;
     private String description;
 
+    public FlowerTypeEntity(){
+
+    }
+    public FlowerTypeEntity(String name, String description){
+
+        this.description = description;
+        this.name = name;
+
+    }
+
+
     public int getId() {
         return id;
     }
