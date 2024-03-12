@@ -36,27 +36,37 @@ public class FlowerControllerTest {
     public void getAllFlower() throws Exception{
 
         List<FlowerEntity> list = Arrays.asList(
-                new FlowerEntity(1 , "Rose" , "une belle Rose"),
-                new FlowerEntity(2 , "Tulipe" , "une belle Tulipe")
+                new FlowerEntity(1 , "Rose" , "une belle Rose", 111.0,111.0, "Lille", "titre"),
+                new FlowerEntity(2 , "Tulipe" , "une belle Tulipe", 120.0 , 120.0, "Roubaix", "Titre2")
         );
 
         when(service.getAll()).thenReturn(list);
 
         mockMvc.perform(get("/flowers"))
                 .andDo(print()).andExpect(status().isOk())
+
                 .andExpect(jsonPath("$" , Matchers.hasSize(2)))
                 .andExpect(jsonPath("$[0].id", Matchers.is(1)))
                 .andExpect(jsonPath("$[0].flower", Matchers.is("Rose")))
                 .andExpect(jsonPath("$[0].description", Matchers.is("une belle Rose")))
+                .andExpect(jsonPath("$[0].longitude", Matchers.is(111.0)))
+                .andExpect(jsonPath("$[0].latitude", Matchers.is(111.0)))
+                .andExpect(jsonPath("$[0].locationName", Matchers.is("Lille")))
+                .andExpect(jsonPath("$[0].titre", Matchers.is("titre")))
+
                 .andExpect(jsonPath("$[1].id", Matchers.is(2)))
                 .andExpect(jsonPath("$[1].flower", Matchers.is("Tulipe")))
-                .andExpect(jsonPath("$[1].description", Matchers.is("une belle Tulipe")));
+                .andExpect(jsonPath("$[1].description", Matchers.is("une belle Tulipe")))
+                .andExpect(jsonPath("$[1].longitude", Matchers.is(120.0)))
+                .andExpect(jsonPath("$[1].latitude", Matchers.is(120.0)))
+                .andExpect(jsonPath("$[1].locationName", Matchers.is("Roubaix")))
+                .andExpect(jsonPath("$[1].titre", Matchers.is("Titre2")));
     }
 
     @Test
     public void FlowerTestMake() throws Exception {
         mockMvc.perform(post("/flowers/make")
-                        .content(asJsonString(new FlowerDTO(1L,"une rose","rose")))
+                        .content(asJsonString(new FlowerDTO(1L,"une rose","rose", 111.0 ,111.0, "Lille", "titre")))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated());
