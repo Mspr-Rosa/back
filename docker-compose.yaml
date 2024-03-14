@@ -1,0 +1,19 @@
+version: '3.1'
+services:
+  mariadb:
+    image: mariadb
+    restart: always
+    ports:
+      - '3306:3306'
+    environment:
+      - 'MARIADB_USER=mspr'
+      - 'MARIADB_PASSWORD=mspr'
+      - 'MARIADB_ROOT_PASSWORD=mspr'
+      - 'MARIADB_DATABASE=flower'
+  backmspr-web:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mariadb
+
