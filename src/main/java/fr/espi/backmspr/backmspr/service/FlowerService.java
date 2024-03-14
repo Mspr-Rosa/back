@@ -32,6 +32,10 @@ public class FlowerService {
         flowerEntity.setDescription(flower.getDescription());
         flowerEntity.setUserEntity(user);
         flowerEntity.setFlower(flower.getFlower());
+        flowerEntity.setLatitude(flower.getLatitude());
+        flowerEntity.setLongitude(flower.getLongitude());
+        flowerEntity.setLocationName(flower.getLocationName());
+        flowerEntity.setTitre(flower.getTitre());
 
         return flowerRepository.save(flowerEntity);
     }

@@ -9,6 +9,14 @@ public class UserDTO {
     private String user;
     private String mdp;
 
+    public UserDTO(String user,String mdp){
+        setMdp(mdp);
+        setUser(user);
+    }
+    public UserDTO(){
+
+    }
+
     public Long getId() {
         return id;
     }

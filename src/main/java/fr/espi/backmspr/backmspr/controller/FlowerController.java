@@ -29,8 +29,9 @@ public class FlowerController {
     }
 
     @PostMapping("make")
-    public FlowerEntity makeFlower(@RequestBody FlowerDTO flowerDTO){
-        return flowerService.makeFlower(flowerDTO);
+    public ResponseEntity<FlowerEntity> makeFlower(@RequestBody FlowerDTO flowerDTO){
+        FlowerEntity flower = flowerService.makeFlower(flowerDTO);
+        return new ResponseEntity<>(flower, HttpStatus.CREATED);
     }
 
 
