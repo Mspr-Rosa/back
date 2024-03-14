@@ -23,10 +23,10 @@ public class Main {
 	@Bean
 	public DataSource dataSource() {
 		final DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		dataSource.setUrl(env.getProperty("url"));
-		dataSource.setUsername("root");
-		dataSource.setPassword(env.getProperty("password"));
+		dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
+		dataSource.setUrl("jdbc:mariadb://mariadb:3306/flower");
+		dataSource.setUsername("mspr");
+		dataSource.setPassword("mspr");
 		return dataSource;
 	}
 
