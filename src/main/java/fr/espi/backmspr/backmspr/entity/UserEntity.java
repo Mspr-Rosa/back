@@ -2,6 +2,7 @@ package fr.espi.backmspr.backmspr.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,6 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users")
+@Data
 public class UserEntity{
 
     @Id
@@ -17,6 +19,12 @@ public class UserEntity{
     private Long id;
     private String user;
     private String mdp;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private List<Role> roles = new ArrayList<>();
+
 
     @OneToMany(mappedBy="userEntity")
     private Set<FlowerEntity> flowers;
