@@ -59,7 +59,7 @@ public class AuthController {
     @PostMapping("register")
     public ResponseEntity<String> register(@RequestBody RegisterDTO RegisterDTO) {
         if (userRepository.existsByUsername(RegisterDTO.getUsername())) {
-            return new ResponseEntity<>("Username is taken!", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Nom d'utilisateur déjà pris !", HttpStatus.BAD_REQUEST);
         }
 
         UserEntity user = new UserEntity();
@@ -71,6 +71,6 @@ public class AuthController {
 
         userRepository.save(user);
 
-        return new ResponseEntity<>("User registered success!", HttpStatus.OK);
+        return new ResponseEntity<>("Utilisateur créé avec succés !", HttpStatus.OK);
     }
 }
