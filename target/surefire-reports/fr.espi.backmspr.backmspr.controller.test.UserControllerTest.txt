@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: fr.espi.backmspr.backmspr.controller.test.UserControllerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.416 s <<< FAILURE! - in fr.espi.backmspr.backmspr.controller.test.UserControllerTest
+UserTestMake  Time elapsed: 0.004 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<201> but was:<403>
+	at fr.espi.backmspr.backmspr.controller.test.UserControllerTest.UserTestMake(UserControllerTest.java:63)
+
+loginTest  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.AssertionError: Response content expected:<true> but was:<>
+	at fr.espi.backmspr.backmspr.controller.test.UserControllerTest.loginTest(UserControllerTest.java:78)
+
+getAllUserTest  Time elapsed: 0.005 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<401>
+	at fr.espi.backmspr.backmspr.controller.test.UserControllerTest.getAllUserTest(UserControllerTest.java:47)
+

@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: fr.espi.backmspr.backmspr.controller.test.FlowerControllerTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 2.615 s <<< FAILURE! - in fr.espi.backmspr.backmspr.controller.test.FlowerControllerTest
+getAllFlower  Time elapsed: 0.09 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<401>
+	at fr.espi.backmspr.backmspr.controller.test.FlowerControllerTest.getAllFlower(FlowerControllerTest.java:46)
+
+FlowerTestMake  Time elapsed: 0.032 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<201> but was:<403>
+	at fr.espi.backmspr.backmspr.controller.test.FlowerControllerTest.FlowerTestMake(FlowerControllerTest.java:72)
+
