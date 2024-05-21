@@ -24,9 +24,9 @@ public class Main {
 	public DataSource dataSource() {
 		final DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
-		dataSource.setUrl("jdbc:mariadb://mariadb:3306/flower");
-		dataSource.setUsername("mspr");
-		dataSource.setPassword("mspr");
+		dataSource.setUrl(env.getProperty("bdd.url"));
+		dataSource.setUsername(env.getProperty("bdd.username"));
+		dataSource.setPassword(env.getProperty("bdd.password"));
 		return dataSource;
 	}
 

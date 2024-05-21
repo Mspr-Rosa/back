@@ -63,21 +63,6 @@ public class UserControllerTest {
                 .andExpect(status().isCreated());
     }
 
-    @Test
-    public void loginTest() throws Exception {
-        UserDTO userDTO = new UserDTO("user","mdp");
-        UserEntity userEntity = new UserEntity(1L, "user", "mdp");
-
-        when(service.login("user","mdp")).thenReturn(userEntity);
-
-        mockMvc.perform(get("/users/login")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(new ObjectMapper().writeValueAsString(userDTO))
-                .param("user","user")
-                .param("mdp","mdp")
-        ).andExpect(content().string("true"));
-    }
-
     public static String asJsonString(final Object obj) {
         try {
             return new ObjectMapper().writeValueAsString(obj);

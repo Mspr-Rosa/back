@@ -2,9 +2,9 @@ package fr.espi.backmspr.backmspr.entity;
 
 import lombok.Data;
 
+
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -16,8 +16,8 @@ public class UserEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String user;
-    private String mdp;
+    private String username;
+    private String password;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
@@ -30,8 +30,8 @@ public class UserEntity{
 
     public UserEntity(Long id,String user,String mdp){
         this.id = id;
-        this.user = user;
-        this.mdp = mdp;
+        this.username = user;
+        this.password = mdp;
     }
 
     public UserEntity(){
@@ -47,18 +47,18 @@ public class UserEntity{
     }
 
     public String getUser() {
-        return user;
+        return username;
     }
 
     public String getMdp() {
-        return mdp;
+        return password;
     }
 
     public void setMdp(String mdp) {
-        this.mdp = mdp;
+        this.password = mdp;
     }
     public void setUser(String user) {
-        this.user = user;
+        this.username = user;
     }
     public void setId(Long id) {
         this.id = id;

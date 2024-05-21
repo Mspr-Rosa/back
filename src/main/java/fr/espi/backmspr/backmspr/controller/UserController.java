@@ -33,15 +33,5 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
-    @GetMapping("login")
-    public boolean login(String user, String mdp){
-
-        if(userService.login(user, mdp) == null){
-            return false;
-        }else {
-            return true;
-        }
-
-    }
 
 }

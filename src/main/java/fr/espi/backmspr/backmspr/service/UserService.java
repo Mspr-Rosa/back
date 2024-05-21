@@ -46,10 +46,6 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public UserEntity login(String user, String mdp){
-        return userRepository.login(user, mdp);
-    }
-
     private boolean isValidPassword(String password) {
         // Vérification de la longueur du mot de passe
         if (password.length() < 12) {

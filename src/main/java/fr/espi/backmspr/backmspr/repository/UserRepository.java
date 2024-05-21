@@ -8,10 +8,7 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-
-    @Query(value = "SELECT * FROM USERS WHERE user = ?1 AND mdp = ?2", nativeQuery = true)
-    Optional<UserEntity> findByUsername(String user);
-    Boolean existsByUsername(String user);
-    UserEntity login(String user, String mdp);
+    Optional<UserEntity> findByUsername(String username);
+    Boolean existsByUsername(String username);
 
 }
