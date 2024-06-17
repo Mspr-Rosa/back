@@ -44,10 +44,6 @@ public class FlowerEntity {
         this.titre = titre;
     }
 
-    public long getId() {
-        return id;
-    }
-
     public String getTitre() {
         return titre;
     }

@@ -2,6 +2,7 @@ package fr.espi.backmspr.backmspr.service;
 
 import fr.espi.backmspr.backmspr.entity.FlowerEntity;
 import fr.espi.backmspr.backmspr.entity.FlowerTypeEntity;
+import fr.espi.backmspr.backmspr.entity.dto.FlowerTypeDTO;
 import fr.espi.backmspr.backmspr.repository.FlowerTypeRepository;
 import org.springframework.stereotype.Component;
 
@@ -19,8 +20,11 @@ public class FlowerTypeService {
         return flowerTypeRepository.findAll();
     }
 
-    public FlowerTypeEntity make(FlowerTypeEntity flower){
-        return flowerTypeRepository.save(flower);
+    public FlowerTypeEntity make(FlowerTypeDTO flower){
+
+        FlowerTypeEntity flowertype = new FlowerTypeEntity(flower.getName(),flower.getDescription());
+
+        return flowerTypeRepository.save(flowertype);
     }
 
 }

@@ -1,6 +1,7 @@
 package fr.espi.backmspr.backmspr.controller;
 
 import fr.espi.backmspr.backmspr.entity.FlowerTypeEntity;
+import fr.espi.backmspr.backmspr.entity.dto.FlowerTypeDTO;
 import fr.espi.backmspr.backmspr.service.FlowerTypeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +24,9 @@ public class FlowerTypeController {
     }
 
     @PostMapping("make")
-    public ResponseEntity<FlowerTypeEntity> make(@RequestBody FlowerTypeEntity flowerTypeEntity){
+    public ResponseEntity<FlowerTypeEntity> make(@RequestBody FlowerTypeDTO FlowerTypeDTO){
 
-        FlowerTypeEntity flower = flowerTypeService.make(flowerTypeEntity);
+        FlowerTypeEntity flower = flowerTypeService.make(FlowerTypeDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(flower);
     }
