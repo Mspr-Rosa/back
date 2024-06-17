@@ -26,5 +26,12 @@ public class UserController {
         return userService.findAll();
     }
 
+    @PostMapping("make")
+    public ResponseEntity<UserEntity> makeUser(@RequestBody UserDTO userDTO){
+
+        UserEntity user = userService.makeUser(userDTO);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
+    }
+
 
 }

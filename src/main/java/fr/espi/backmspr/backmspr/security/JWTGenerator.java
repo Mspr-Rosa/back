@@ -1,6 +1,8 @@
 package fr.espi.backmspr.backmspr.security;
 
-import io.jsonwebtoken.*;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
@@ -32,21 +34,12 @@ public class JWTGenerator {
     }
 
     public boolean validateToken(String token){
-        try {
+        try{
             Jwts.parser().setSigningKey(SecurityConstants.JWT_SECRET).parseClaimsJws(token);
             return true;
-        } catch (ExpiredJwtException e) {
-            System.out.println("expired token");
-        } catch (UnsupportedJwtException e) {
-            System.out.println("unsupported token");
-        } catch (MalformedJwtException e) {
-            System.out.println("malformed token");
-        } catch (SignatureException e) {
-            System.out.println("signature exception");
-        } catch (IllegalArgumentException e) {
-            System.out.println("illegal argument exception token" + e.getMessage());
+        }catch (Exception ex){
+            throw new AuthenticationCredentialsNotFoundException("Le jwt est expiré ou incorrect");
         }
-        return false;
     }
 }
 
