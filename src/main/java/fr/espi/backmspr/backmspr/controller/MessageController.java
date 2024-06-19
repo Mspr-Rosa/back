@@ -2,7 +2,9 @@ package fr.espi.backmspr.backmspr.controller;
 
 import fr.espi.backmspr.backmspr.entity.MessageEntity;
 import fr.espi.backmspr.backmspr.service.MessageService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 

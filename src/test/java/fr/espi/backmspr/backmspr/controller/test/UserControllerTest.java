@@ -5,6 +5,7 @@ import com.jayway.jsonpath.JsonPath;
 import fr.espi.backmspr.backmspr.controller.UserController;
 import fr.espi.backmspr.backmspr.entity.UserEntity;
 import fr.espi.backmspr.backmspr.entity.dto.UserDTO;
+import fr.espi.backmspr.backmspr.entity.dto.UserReponseDTO;
 import fr.espi.backmspr.backmspr.service.UserService;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
@@ -37,9 +38,9 @@ public class UserControllerTest {
 
     @Test
     public void getAllUserTest() throws Exception {
-        List<UserEntity> users = Arrays.asList(
-                new UserEntity(1L,"user1","mdp1"),
-                new UserEntity(2L,"user2","mdp2")
+        List<UserReponseDTO> users = Arrays.asList(
+                new UserReponseDTO(1L,"user1"),
+                new UserReponseDTO(2L,"user2")
         );
 
         when(service.findAll()).thenReturn(users);

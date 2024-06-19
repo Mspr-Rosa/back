@@ -4,11 +4,14 @@ import fr.espi.backmspr.backmspr.entity.FlowerEntity;
 import fr.espi.backmspr.backmspr.entity.UserEntity;
 import fr.espi.backmspr.backmspr.entity.dto.FlowerDTO;
 import fr.espi.backmspr.backmspr.entity.dto.UserDTO;
+import fr.espi.backmspr.backmspr.entity.dto.UserReponseDTO;
 import fr.espi.backmspr.backmspr.repository.UserRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 import java.util.List;
@@ -22,9 +25,19 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<UserEntity> findAll(){
-        return userRepository.findAll();
+    public List<UserReponseDTO> findAll(){
+
+        List<UserEntity> users = userRepository.findAll();
+
+        List<UserReponseDTO> userReponses = new ArrayList<>();
+        for(UserEntity user : users){
+            UserReponseDTO userReponseDTO = new UserReponseDTO(user.getId(),user.getUsername());
+            userReponses.add(userReponseDTO);
+        }
+
+        return userReponses;
     }
+
     private String hashPassword(String password) {
         // Utilisation de BCrypt pour hacher le mot de passe
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();

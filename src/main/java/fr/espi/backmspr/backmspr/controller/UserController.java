@@ -2,6 +2,7 @@ package fr.espi.backmspr.backmspr.controller;
 
 import fr.espi.backmspr.backmspr.entity.UserEntity;
 import fr.espi.backmspr.backmspr.entity.dto.UserDTO;
+import fr.espi.backmspr.backmspr.entity.dto.UserReponseDTO;
 import fr.espi.backmspr.backmspr.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,15 +23,8 @@ public class UserController {
     }
 
     @GetMapping("")
-    public List<UserEntity> findAll(){
+    public List<UserReponseDTO> findAll(){
         return userService.findAll();
-    }
-
-    @PostMapping("make")
-    public ResponseEntity<UserEntity> makeUser(@RequestBody UserDTO userDTO){
-
-        UserEntity user = userService.makeUser(userDTO);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
 

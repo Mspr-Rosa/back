@@ -1,9 +1,9 @@
 package fr.espi.backmspr.backmspr.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.*;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -42,10 +42,6 @@ public class FlowerEntity {
         this.longitude = longitude;
         this.locationName = locationName;
         this.titre = titre;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public String getTitre() {
