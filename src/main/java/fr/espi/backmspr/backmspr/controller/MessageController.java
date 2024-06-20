@@ -1,10 +1,10 @@
 package fr.espi.backmspr.backmspr.controller;
 
 import fr.espi.backmspr.backmspr.entity.MessageEntity;
+import fr.espi.backmspr.backmspr.entity.dto.ConversationPostDTO;
+import fr.espi.backmspr.backmspr.entity.dto.MessagePostDTO;
 import fr.espi.backmspr.backmspr.service.MessageService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +20,12 @@ public class MessageController {
     @GetMapping("")
     public List<MessageEntity> getAll(){
         return messageService.getAll();
+    }
+
+    @PostMapping("")
+    public String makeConv(@RequestBody MessagePostDTO messagePostDTO){
+        messageService.save(messagePostDTO);
+        return "message envoyer";
     }
 
 

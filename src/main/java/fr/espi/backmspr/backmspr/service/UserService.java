@@ -1,21 +1,17 @@
 package fr.espi.backmspr.backmspr.service;
 
-import fr.espi.backmspr.backmspr.entity.FlowerEntity;
 import fr.espi.backmspr.backmspr.entity.UserEntity;
-import fr.espi.backmspr.backmspr.entity.dto.FlowerDTO;
 import fr.espi.backmspr.backmspr.entity.dto.UserDTO;
 import fr.espi.backmspr.backmspr.entity.dto.UserReponseDTO;
 import fr.espi.backmspr.backmspr.repository.UserRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.regex.Pattern;
 
 import java.util.List;
-import java.util.concurrent.Flow;
 
 @Component
 public class UserService {
@@ -23,6 +19,10 @@ public class UserService {
     UserRepository userRepository;
     public UserService(UserRepository userRepository){
         this.userRepository = userRepository;
+    }
+
+    public Optional<UserEntity> findByUsername(String username){
+        return userRepository.findByUsername(username);
     }
 
     public List<UserReponseDTO> findAll(){
