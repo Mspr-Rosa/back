@@ -15,7 +15,7 @@ Les routes sont documentées via Swagger et sont accessibles à cette URL : [loc
 L'initialisation de la base de données se fera automatiquement via les migrations.
 
 ## Création d'une migration
-Pour créer une migration, rendez-vous dans le dossier ressource/bdd/migrations. Des migrations existent déjà à cet emplacement. Pour en créer une nouvelle, vous devez ajouter un nouveau fichier SQL contenant les instructions en langage SQL permettant de modifier la base de données.
+Pour créer une migration, rendez-vous dans le dossier ressource/bdd/migrations. Des migrations existent déjà à cet emplacement. Pour en créer une nouvelle, vous devez ajouter un nouveau fichier SQL contenant les instructions en langage SQL permettant de modifier la base de données. Le nom du fichier doit repecter ce nomage : VERSION__NOM.sql
 
 ## Déploiement de l'application
 Grâce à notre fichier **'DockerFile'**, nous pouvons facilement déployer l'application sur un cloud pour créer notre container Docker. Actuellement, ce n'est pas encore fait, mais nous pourrions le faire grâce à ce fichier.
