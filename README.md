@@ -1,6 +1,6 @@
-# Back MSPR
+# Back
 
-L'application Back MSPR est une API permettant de récupérer les différentes données nécessaires pour l'application mobile.
+L'application Back est une API permettant de récupérer les différentes données nécessaires pour l'application mobile.
 
 Les routes sont documentées via Swagger et sont accessibles à cette URL : [localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/)
 
